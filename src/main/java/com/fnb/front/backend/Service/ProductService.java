@@ -18,13 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ProductService {
 
-    @Autowired
-    private ProductRepository productRepository;
-
-    @Autowired
-    private ReviewRepository reviewRepository;
+    private final ProductRepository productRepository;
+    private final ReviewRepository reviewRepository;
 
     @TransactionalEventListener()
     public void handleQuantityToOrder(OrderResultEvent event) {
