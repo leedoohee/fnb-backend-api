@@ -22,17 +22,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PaymentService {
 
-    @Autowired
-    private ApplicationEventPublisher eventPublisher;
-
-    @Autowired
-    private PaymentRepository paymentRepository;
-
-    private OrderService orderService;
-
-    public PaymentService(OrderService orderService) {
-        this.orderService = orderService;
-    }
+    private final ApplicationEventPublisher eventPublisher;
+    private final PaymentRepository paymentRepository;
+    private final OrderService orderService;
 
     public RequestPaymentResponse request(RequestPayment requestPayment) {
         PaymentProcessor paymentProcessor = new PaymentProcessor(PayFactory.getPay(requestPayment.getPayType()));

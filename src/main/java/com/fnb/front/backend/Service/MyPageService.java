@@ -11,13 +11,11 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
+@RequiredArgsConstructor
 public class MyPageService {
 
-    @Autowired
-    private OrderRepository orderRepository;
-
-    @Autowired
-    private MemberRepository memberRepository;
+    private final OrderRepository orderRepository;
+    private final MemberRepository memberRepository;
 
     public void getOrders(int memberId, String startDate, String endDate, int page, int pageLimit) {
         List<Order> orders = this.orderRepository.getOrders(memberId, startDate, endDate, page, pageLimit);
