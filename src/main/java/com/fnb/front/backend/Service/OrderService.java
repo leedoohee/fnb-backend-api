@@ -23,27 +23,12 @@ import java.util.*;
 @RequiredArgsConstructor
 public class OrderService {
 
-    @Autowired
-    private ProductRepository productRepository;
-
-    @Autowired
-    private CouponRepository couponRepository;
-
-    @Autowired
-    private MemberRepository memberRepository;
-
-    @Autowired
-    private OrderRepository orderRepository;
-
-    @Autowired
-    private MerchantRepository merchantRepository;
-
-    @Autowired
-    private PaymentService paymentService;
-
-    public OrderService(PaymentService paymentService) {
-        this.paymentService = paymentService;
-    }
+    private final ProductRepository productRepository;
+    private final CouponRepository couponRepository;
+    private final MemberRepository memberRepository;
+    private final OrderRepository orderRepository;
+    private final MerchantRepository merchantRepository;
+    private final PaymentService paymentService;
 
     @Transactional
     public OrderResponse create(OrderRequest orderRequest) throws Exception {
