@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ReviewService {
 
-    @Autowired
-    private ReviewRepository reviewRepository;
+    private final ReviewRepository reviewRepository;
 
     public List<ReviewResponse> getMyReviews(int memberId) {
         List<Review> myReviews = this.reviewRepository.findReviewsByMemberId(memberId);
